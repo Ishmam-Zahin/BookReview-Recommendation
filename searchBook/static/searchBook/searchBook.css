@@ -9,7 +9,7 @@ body{
 }
 .body{
     background-color: #dcdcdc;
-    height: 100%;
+    height: calc(100% - 70px);
     width: 100%;
     display: flex;
     justify-content: center;

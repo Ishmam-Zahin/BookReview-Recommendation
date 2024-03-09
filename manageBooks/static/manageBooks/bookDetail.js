@@ -11,7 +11,7 @@ const generateReviews = function (){
 
 function showReviews(){
     const reviews = document.getElementById("dShowReviews")
-    reviews.innerHTML = generateReviews()
+    reviews.innerHTML += generateReviews()
 }
 
 async function getReviews(bookId){
@@ -39,7 +39,7 @@ function showResult(bookId, totalViews, rating){
     <p><span>Rating: </span>${rating}</p>`
 
     const dsc = document.getElementById("dDsc")
-    dsc.innerHTML = `<span>Description: </span>${data.volumeInfo.description}`
+    dsc.innerHTML = `<span>Description: </span><br>${data.volumeInfo.description}`
 
     getReviews(bookId)
 }

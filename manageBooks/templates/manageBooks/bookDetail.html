@@ -8,40 +8,57 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="{% static 'manageBooks/bookDetail.css' %}">
+    <link rel="stylesheet" href="{% static 'manageBooks/navBar.css' %}">
 </head>
 <body>
-    <div class="detailsContainer">
-        <div class="dDetails">
-            <p class="dImage" id="dImage"></p>
-            <p class="dInfo" id="dInfo"></p>
+    <header class="navBar">
+        <div class="logo"><p>M. I. Z</p></div>
+        <div class="links">
+            <p><a href="{% url 'home' %}">home</a></p>
+            <p><a href="{% url 'searchBooks' %}">Search Books</a></p>
+            {% if user.is_authenticated %}
+            <p><a href="">User</a></p>
+            {% endif %}
         </div>
-        <div class="dDescription">
-            <p class="dDsc" id="dDsc"></p>
+        <div class="user">
+            {% if user.is_authenticated %}
+            <p class="logout"><a href="{% url 'logout' %}">LOG OUT</a></p>
+            {% else %}
+            <p class="login"><a href="{% url 'login' %}">LOG IN</a></p>
+            <p class="signup"><a href="{% url 'register' %}">SIGN UP</a></p>
+            {% endif %}
         </div>
-        <div class="dReview">
-            <div class="dPostReview">
-                {% if canReview %}
-                <form action="{% url 'postReview' book.bookId %}" method="post">
-                    {% csrf_token %}
-                    <label for="id_text">Enter Review:</label>
-                    <input type="text" id="id_text" name="message" maxlength="200"><br>
-                    <input type="submit" value="POST">
-                </form>
-                {% else %}
-                <p>YOU HAVE ALREADY REVIEWED THIS BOOK!</p>
-                {% endif %}
-                <!-- <form action="{% url 'postReview' book.bookId %}" method="post">
-                    {% csrf_token %}
-                    <label for="id_text">Enter Review:</label>
-                    <input type="text" id="id_text" name="message" maxlength="200"><br>
-                    <input type="submit" value="POST">
-                </form> -->
+    </header>
+    <div class="container">
+        <div class="detailsContainer">
+            <div class="dDetails">
+                <p class="dImage" id="dImage"></p>
+                <p class="dInfo" id="dInfo"></p>
             </div>
-            <div class="dShowReviews" id="dShowReviews"></div>
+            <div class="dDescription">
+                <p class="dDsc" id="dDsc"></p>
+            </div>
+            <div class="dReview">
+                <div class="dPostReview">
+                    {% if canReview %}
+                    <form action="{% url 'postReview' book.bookId %}" method="post">
+                        {% csrf_token %}
+                        <label for="id_text">Enter Review:</label><br>
+                        <input type="text" id="id_text" name="message" maxlength="200" required><br>
+                        <input type="submit" value="POST" id="button">
+                    </form>
+                    {% else %}
+                    <p>YOU HAVE ALREADY REVIEWED THIS BOOK!</p>
+                    {% endif %}
+                </div>
+                <div class="dShowReviews" id="dShowReviews">
+                    Reviews by Our Users:
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="recommendContainer">
-
+        <div class="recommendContainer">
+            WILL AVAILABLE SOON
+        </div>
     </div>
 
     <script src="{% static 'manageBooks/bookDetail.js' %}"></script>

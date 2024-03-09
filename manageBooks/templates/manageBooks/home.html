@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+
+    <link rel="stylesheet" href="{% static 'manageBooks/home.css' %}">
     <link rel="stylesheet" href="{% static 'manageBooks/navBar.css' %}">
 </head>
 <body>
@@ -27,17 +28,7 @@
             {% endif %}
         </div>
     </header>
-    <div class="container">
-        <form method="post">
-            {% csrf_token %}
-            <label for="idUserName">User Name: </label>
-            <input type="text" id="idUserName" name="username"><br>
-    
-            <label for="idPassword">User Name: </label>
-            <input type="password" id="idPassword" name="password"><br>
-    
-            <input type="submit" value="LOG IN">
-        </form>
-    </div>
+
+    <script src="{% static 'manageBooks/home.js' %}"></script>
 </body>
 </html>

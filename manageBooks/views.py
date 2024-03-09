@@ -5,6 +5,10 @@ from .models import Books, UserViewedBooks, Reviews
 from django.contrib.auth.models import User
 # Create your views here.
 
+def home(request):
+    context = {}
+    return render(request, "manageBooks/home.html", context)
+
 def showDetails(request, id):
     if request.user.is_authenticated:
         book = {}
@@ -56,6 +60,7 @@ def postReview(request, id):
         book = Books.objects.get(bookId = id)
         user = request.user
         msg = request.POST["message"]
-        review = Reviews(message = msg, user = user, book = book)
-        review.save()
+        if msg != "":
+            review = Reviews(message = msg, user = user, book = book)
+            review.save()
     return redirect(reverse("details", args=(id,)))

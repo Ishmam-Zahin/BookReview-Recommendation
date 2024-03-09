@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link rel="stylesheet" href="{% static 'userManager/registerForm.css' %}">
     <link rel="stylesheet" href="{% static 'manageBooks/navBar.css' %}">
 </head>
 <body>
@@ -43,7 +44,7 @@
             <label for="{{ form.password2.id_for_label }}">Repeat Password:</label>
             {{ form.password2 }}<br>
     
-            <input type="submit" value="REGISTER">
+            <input type="submit" value="REGISTER" class="button">
         </form>
     </div>
 </body>

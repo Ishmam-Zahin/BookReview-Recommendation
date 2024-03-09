@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     
+    <link rel="stylesheet" href="{% static 'userManager/login.css' %}">
     <link rel="stylesheet" href="{% static 'manageBooks/navBar.css' %}">
 </head>
 <body>
@@ -33,10 +34,10 @@
             <label for="idUserName">User Name: </label>
             <input type="text" id="idUserName" name="username"><br>
     
-            <label for="idPassword">User Name: </label>
+            <label for="idPassword">Password: </label>
             <input type="password" id="idPassword" name="password"><br>
     
-            <input type="submit" value="LOG IN">
+            <input type="submit" value="LOG IN" class="button">
         </form>
     </div>
 </body>

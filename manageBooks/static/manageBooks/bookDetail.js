@@ -15,7 +15,7 @@ function showReviews(){
 }
 
 async function getReviews(bookId){
-    const endpoint  = "http://127.0.0.1:8000/getReviews/"+bookId
+    const endpoint  = "/getReviews/"+bookId
     const p = await fetch(endpoint)
     reviews = await p.json()
 
@@ -25,8 +25,13 @@ async function getReviews(bookId){
 function showResult(bookId, totalViews, rating){
     const image = document.getElementById("dImage")
     const info = document.getElementById("dInfo")
-    if(data.volumeInfo.imageLinks.thumbnail != undefined){
-        image.innerHTML = `<img src="${data.volumeInfo.imageLinks.thumbnail}" alt="no image" width="100%" height="100%">` 
+    if(data.volumeInfo.imageLinks != undefined){
+        if(data.volumeInfo.imageLinks.thumbnail != undefined){
+            image.innerHTML = `<img src="${data.volumeInfo.imageLinks.thumbnail}" alt="no image" width="100%" height="100%">` 
+        }
+        else{
+            image.innerHTML = "IMAGE NOT AVAILABLE"
+        }
     }
     else{
         image.innerHTML = "IMAGE NOT AVAILABLE"

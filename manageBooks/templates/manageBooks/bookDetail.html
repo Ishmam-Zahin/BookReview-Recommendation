@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{% static 'manageBooks/bookDetail.css' %}">
+</head>
+<body>
+    <div class="detailsContainer">
+        <div class="dDetails">
+            <p class="dImage" id="dImage"></p>
+            <p class="dInfo" id="dInfo"></p>
+        </div>
+        <div class="dDescription">
+            <p class="dDsc" id="dDsc"></p>
+        </div>
+        <div class="dReview">
+            <div class="dPostReview">
+                {% if canReview %}
+                <form action="{% url 'postReview' book.bookId %}" method="post">
+                    {% csrf_token %}
+                    <label for="id_text">Enter Review:</label>
+                    <input type="text" id="id_text" name="message" maxlength="200"><br>
+                    <input type="submit" value="POST">
+                </form>
+                {% else %}
+                <p>YOU HAVE ALREADY REVIEWED THIS BOOK!</p>
+                {% endif %}
+                <!-- <form action="{% url 'postReview' book.bookId %}" method="post">
+                    {% csrf_token %}
+                    <label for="id_text">Enter Review:</label>
+                    <input type="text" id="id_text" name="message" maxlength="200"><br>
+                    <input type="submit" value="POST">
+                </form> -->
+            </div>
+            <div class="dShowReviews" id="dShowReviews"></div>
+        </div>
+    </div>
+    <div class="recommendContainer">
+
+    </div>
+
+    <script src="{% static 'manageBooks/bookDetail.js' %}"></script>
+    <script>getData("{{ book.bookId }}", "{{ book.totalViews }}", "{{ book.rating }}")</script>
+</body>
+</html>

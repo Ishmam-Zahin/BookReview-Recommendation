@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+
+        {{ form.username.errors }}
+        <label for="{{ form.username.id_for_label }}">Create User Name:</label>
+        {{ form.username }}<br>
+
+        {{ form.password1.errors }}
+        <label for="{{ form.password1.id_for_label }}">Create Password:</label>
+        {{ form.password1 }}<br>
+
+        {{ form.password2.errors }}
+        <label for="{{ form.password2.id_for_label }}">Repeat Password:</label>
+        {{ form.password2 }}<br>
+
+        <input type="submit" value="REGISTER">
+    </form>
+</body>
+</html>

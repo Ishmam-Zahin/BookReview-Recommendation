@@ -37,7 +37,7 @@ function showResult(bookId, totalViews, rating){
         image.innerHTML = "IMAGE NOT AVAILABLE"
     }
 
-    info.innerHTML = `<p><span>Author Name: </span>${data.volumeInfo.authors[0]}</p>
+    info.innerHTML += `<p><span>Author Name: </span>${data.volumeInfo.authors[0]}</p>
     <p><span>Publisher Name: </span>${data.volumeInfo.publisher}</p>
     <p><span>Publish Date: </span>${data.volumeInfo.publishedDate}</p>
     <p><span>Total Views: </span>${totalViews}</p>

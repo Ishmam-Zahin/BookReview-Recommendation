@@ -1,0 +1,91 @@
+body{
+    width: 100vw;
+    height: 100vh;
+}
+.container{
+    border: 1px solid red;
+    width: 100%;
+    height: calc(100% - 70px);
+    overflow-y: scroll;
+}
+.recentBooks{
+    width: 100%;
+    height: fit-content;
+    border: 1px solid blue;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.recentReviewedBooks{
+    width: 100%;
+    height: fit-content;
+    border: 1px solid blue;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.topViewedBooks{
+    width: 100%;
+    height: fit-content;
+    border: 1px solid blue;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.topRatedBooks{
+    width: 100%;
+    height: fit-content;
+    border: 1px solid blue;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.rxContainer{
+    border: 1px solid blue;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+.rxContainer .title{
+    border: 1px solid blue;
+    width: 100%;
+    height: 25px;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.rxContainer .title a{
+    text-decoration: none;
+}
+.rxContainer .image{
+    width: 100%;
+    height: 169px;
+    overflow: hidden;
+}
+.rxContainer .image img{
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes anim{
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg)}
+}
+.loader{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    display: flex;
+    background-image: conic-gradient(blue 0deg, blue 90deg, #dcdcdc 0deg);
+    animation-name: anim;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    /* display: none; */
+}
+.loader div{
+    background-color: #ffffff;
+    border-radius: 50%;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+}

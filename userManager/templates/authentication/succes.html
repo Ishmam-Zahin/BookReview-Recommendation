@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+
+    <link rel="stylesheet" href="{% static 'manageBooks/navBar.css' %}">
+</head>
+<body>
+    <header class="navBar">
+        <div class="logo"><p>M. I. Z</p></div>
+        <div class="links">
+            <p><a href="{% url 'home' %}">home</a></p>
+            <p><a href="{% url 'searchBooks' %}">Search Books</a></p>
+            {% if user.is_authenticated %}
+            <p><a href="">User</a></p>
+            {% endif %}
+        </div>
+        <div class="user">
+            {% if user.is_authenticated %}
+            <p class="logout"><a href="{% url 'logout' %}">LOG OUT</a></p>
+            {% else %}
+            <p class="login"><a href="{% url 'login' %}">LOG IN</a></p>
+            <p class="signup"><a href="{% url 'register' %}">SIGN UP</a></p>
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="container" style="text-align: center; font-size: 20px; font-family: 'Arial Black';">
+        YOUR REGISTRATION WAS SUCCESSFULL.<br>
+        YOU CAN NOW LOG IN.
+    </div>
+</body>
+</html>

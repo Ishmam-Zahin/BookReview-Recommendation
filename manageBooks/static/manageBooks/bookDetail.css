@@ -13,26 +13,31 @@ body{
     display: flex;
 }
 .detailsContainer{
-    border: 1px solid red;
     width: 70%;
     height: 100%;
     overflow-y: scroll;
 }
 .dDetails{
-    border: 1px solid blue;
     width: 100%;
     height: 400px;
     display: flex;
 }
 .dImage{
-    border: 1px solid red;
     height: 100%;
     width: 40%;
+    margin: 5px;
 }
 .dInfo{
-    border: 1px solid blue;
     height: 100%;
     width: 60%;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.dInfo p span{
+    font-size: 18px;
+    font-family: "Arial Black";
 }
 .dDsc{
     text-align: center;
@@ -68,9 +73,13 @@ body{
     margin-top: 10px;
 }
 .dShowReviews p{
+    border: 2px solid blue;
+    width: 100%;
+    height: 50px;
     text-align: left;
     font-size: 16px;
     font-family: "serif";
+    margin: 5px;
 }
 .dShowReviews p span{
     font-family: "Arial Black";

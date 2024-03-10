@@ -33,7 +33,24 @@
         <div class="detailsContainer">
             <div class="dDetails">
                 <p class="dImage" id="dImage"></p>
-                <p class="dInfo" id="dInfo"></p>
+                <p class="dInfo" id="dInfo">
+                    {% if canRate %}
+                    <form action="{% url 'postRating' book.bookId %}" method="post">
+                        {% csrf_token %}
+                        <label for="id_select" style="font-size: 17px; font-family: 'Arial Black'">Select Rating:</label><br>
+                        <select name="rating" id="id_select" style="width: 100%; border-radius: 0; height: 30px;">
+                            <option value="1">ONE STAR</option>
+                            <option value="2">TWO STAR</option>
+                            <option value="3">THREE STAR</option>
+                            <option value="4">FOUR STAR</option>
+                            <option value="5">FIVE STAR</option>
+                        </select>
+                        <input type="submit" value="RATE" id="button" style="width: 100%; height: 30px; margin-top:5px;">
+                    </form>
+                    {% else %}
+                    <p>ALREADY RATED!</p>
+                    {% endif %}
+                </p>
             </div>
             <div class="dDescription">
                 <p class="dDsc" id="dDsc"></p>

@@ -14,7 +14,8 @@ def registerUser(request):
             form = UserCreationForm(request.POST)
             if form.is_valid():
                 form.save()
-                return HttpResponse("success")
+                context = {}
+                return render(request, "authentication/succes.html", context)
             else:
                 context = {
                     "form": form,

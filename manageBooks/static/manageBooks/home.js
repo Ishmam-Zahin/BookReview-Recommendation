@@ -1,23 +1,26 @@
 function writeData(data, elementId){
     if(data.volumeInfo == undefined) return
-    const element = document.getElementById(elementId)
-    // console.log(data)
-    element.innerHTML += `<div class="rxContainer"><p class="title"><a href="/details/${data.id}">${data.volumeInfo.title}</a></p><p class="image">${function start(){
-        str = ""
+    const  element = document.getElementById(elementId)
+    element.innerHTML += `
+    <div class="card _xinfo" style="width: 300px; height: 350px">
+    <img style="width: 100%; height: 230px" src="${function start(){
         if(data.volumeInfo.imageLinks != undefined){
             if(data.volumeInfo.imageLinks.thumbnail != undefined){
-                str = `<img src="${data.volumeInfo.imageLinks.thumbnail}" alt="no image">`
+                return data.volumeInfo.imageLinks.thumbnail
             }
             else{
-                str = "IMAGE NOT AVAILABLE"
+                return "/static/manageBooks/resources/brokenImage.jpg"
             }
         }
-        else{
-            str = "IMAGE NOT AVAILABLE"
-        }
-
-        return str
-    }()}</P></div>`
+        else return "/static/manageBooks/resources/brokenImage.jpg"
+    }()}" class="card-img-top" alt="Loading . . .">
+    <div class="card-body" style="height: 100px; width: 100%; background-color: rgb(42, 42, 129);">
+    <h5 class="card-title" style="width: 280px; height: 50px; overflow: hidden; color: white; white-space:nowrap; text-overflow: ellipsis;
+}">Title:<br>${data.volumeInfo.title}</h5>
+    <a href="/details/${data.id}" class="btn btn-primary">Show details</a>
+    </div>
+    </div>
+    `
 }
 
 async function showRecentBooks(bookIds){
@@ -52,9 +55,9 @@ async function showRecentBooks(bookIds){
 }
 
 async function getRecentBooks(){
-    const p = await fetch("/getRecentBooks/18")
+    const p = await fetch("/getRecentBooks/12")
     const bookIds = await p.json()
-    console.log(bookIds)
+    // console.log(bookIds)
     showRecentBooks(bookIds)
 }
 getRecentBooks()

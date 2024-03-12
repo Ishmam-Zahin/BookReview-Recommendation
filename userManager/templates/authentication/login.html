@@ -11,36 +11,57 @@
     <link rel="stylesheet" href="{% static 'manageBooks/navBar.css' %}">
 </head>
 <body>
-    <header class="container-fluid _navcontainer">
-        <div class="row _row">
-            <div class="col-3 _introcontainer"><a href="{% url 'home' %}">
+    <header class="_navcontainer">
+        <div class="_row">
+            <div class="_introcontainer"><a href="{% url 'home' %}">
                 <img src="{% static 'manageBooks/resources/logo.png' %}" alt="logo" class=" _logo"></a>
                 <span>Knowledge Is Power</span>
             </div>
-            <div class="col-2 _links">
-                <div style="width: fit-content; margin: auto;"><a class="btn btn-primary text-nowrap _buttons" role="button" href="{% url 'home' %}">Home</a></div>
+            <div class="_llinks">
+                <div class="_links">
+                    <div style="width: fit-content; margin: auto;"><a class="btn btn-primary text-nowrap _buttons" role="button" href="{% url 'home' %}">Home</a></div>
+                </div>
+                <div class="_links">
+                    <div style="width: fit-content; margin: auto;"><a class="btn btn-primary text-nowrap _buttons" role="button" href="{% url 'searchBooks' %}">Search Books</a></div>
+                </div>
+                {% if user.is_authenticated %}
+                <div class="_links">
+                    <div style="width: fit-content; margin: auto;"><a class="btn btn-primary text-nowrap _buttons" role="button" href="{% url 'home' %}">Profile</a></div>
+                </div>
+                {% endif %}
+    
+                {% if user.is_authenticated %}
+                <div class="_links">
+                    <div style="width: fit-content; margin: auto;"><a class="btn btn-primary text-nowrap _buttons" role="button" href="{% url 'logout' %}">Log Out</a></div>
+                </div>
+                {% else %}
+                <div class="_links">
+                    <div style="width: fit-content; margin: auto;"><a class="btn btn-primary text-nowrap _buttons" role="button" href="{% url 'login' %}">Log In</a></div>
+                </div>
+                <div class="_links">
+                    <div style="width: fit-content; margin: auto;"><a class="btn btn-primary text-nowrap _buttons" role="button" href="{% url 'register' %}">Sign Up</a></div>
+                </div>
+                {% endif %}
             </div>
-            <div class="col-3 _links">
-                <div style="width: fit-content; margin: auto;"><a class="btn btn-primary text-nowrap _buttons" role="button" href="{% url 'searchBooks' %}">Search Books</a></div>
-            </div>
-            {% if user.is_authenticated %}
-            <div class="col-2 _links">
-                <div style="width: fit-content; margin: auto;"><a class="btn btn-primary text-nowrap _buttons" role="button" href="{% url 'home' %}">Profile</a></div>
-            </div>
-            {% endif %}
 
-            {% if user.is_authenticated %}
-            <div class="col-2 _links">
-                <div style="width: fit-content; margin: auto;"><a class="btn btn-primary text-nowrap _buttons" role="button" href="{% url 'logout' %}">Log Out</a></div>
+            <div class="dropdown _dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Menues
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{% url 'home' %}">Home</a></li>
+                  <li><a class="dropdown-item" href="{% url 'searchBooks' %}">Search Books</a></li>
+                  {% if user.is_authenticated %}
+                  <li><a class="dropdown-item" href="{% url 'home' %}">User</a></li>
+                  {% endif %}
+                  {% if user.is_authenticated %}
+                  <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
+                  {% else %}
+                  <li><a class="dropdown-item" href="{% url 'login' %}">Log In</a></li>
+                  <li><a class="dropdown-item" href="{% url 'register' %}">Sign Up</a></li>
+                  {% endif %}
+                </ul>
             </div>
-            {% else %}
-            <div class="col-2 _links">
-                <div style="width: fit-content; margin: auto;"><a class="btn btn-primary text-nowrap _buttons" role="button" href="{% url 'login' %}">Log In</a></div>
-            </div>
-            <div class="col-2 _links">
-                <div style="width: fit-content; margin: auto;"><a class="btn btn-primary text-nowrap _buttons" role="button" href="{% url 'register' %}">Sign Up</a></div>
-            </div>
-            {% endif %}
         </div>
     </header>
     <div class="container">
@@ -55,5 +76,7 @@
             <input type="submit" value="LOG IN" class="button">
         </form>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

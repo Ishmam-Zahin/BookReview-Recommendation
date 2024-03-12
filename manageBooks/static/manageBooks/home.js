@@ -2,8 +2,8 @@ function writeData(data, elementId){
     if(data.volumeInfo == undefined) return
     const  element = document.getElementById(elementId)
     element.innerHTML += `
-    <div class="card _xinfo" style="width: 300px; height: 350px">
-    <img style="width: 100%; height: 230px" src="${function start(){
+    <div class="card _xinfo">
+    <img src="${function start(){
         if(data.volumeInfo.imageLinks != undefined){
             if(data.volumeInfo.imageLinks.thumbnail != undefined){
                 return data.volumeInfo.imageLinks.thumbnail
@@ -14,9 +14,8 @@ function writeData(data, elementId){
         }
         else return "/static/manageBooks/resources/brokenImage.jpg"
     }()}" class="card-img-top" alt="Loading . . .">
-    <div class="card-body" style="height: 100px; width: 100%; background-color: rgb(42, 42, 129);">
-    <h5 class="card-title" style="width: 280px; height: 50px; overflow: hidden; color: white; white-space:nowrap; text-overflow: ellipsis;
-}">Title:<br>${data.volumeInfo.title}</h5>
+    <div class="card-body">
+    <h5 class="card-title">Title:<br>${data.volumeInfo.title}</h5>
     <a href="/details/${data.id}" class="btn btn-primary">Show details</a>
     </div>
     </div>

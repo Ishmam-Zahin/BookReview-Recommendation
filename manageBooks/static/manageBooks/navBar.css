@@ -26,6 +26,7 @@ body{
 ._introcontainer{
     width: 300px;
     height: 100%;
+    margin-left: 15px;
 }
 ._introcontainer span{
     display: inline-block;
@@ -36,15 +37,15 @@ body{
     text-shadow: 3px -3px 5px rgb(255, 0, 0);
 }
 ._llinks{
-    width: calc(100% - 300px);
+    width: fit-content;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
 }
 ._links{
     width: fit-content;
     height: fit-content;
-    margin: auto;
+    margin: 15px;
 }
 ._buttons{
     width: fit-content;
@@ -59,14 +60,14 @@ body{
     display: none;
 }
 
-@media only screen and (max-width: 910px){
+@media only screen and (max-width: 1016px){
     ._buttons{
         font-size: 12px;
         padding-left: 20px;
         padding-right: 20px;
     }
 }
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 826px){
     ._llinks{
         display: none;
     }
@@ -76,6 +77,7 @@ body{
     }
     ._introcontainer{
         width: 220px;
+        margin-left: 0;
     }
     ._introcontainer span{
         font-size: 14px;

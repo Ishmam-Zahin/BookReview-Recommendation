@@ -102,9 +102,11 @@ def postRating(request, id):
             rate = int(request.POST["rating"])
             newRating = Ratings(rate = rate, user = user, book = book)
             newRating.save()
-            book.totalRatingCount += 1
-            book.save()
-            book.rating = round(((book.rating + rate) / book.totalRatingCount), 2)
+            previousAvgRating = book.rating * book.totalRatingCount
+            newTotalRatingCount = book.totalRatingCount + 1
+            newAvgRating = round(((previousAvgRating + rate) / newTotalRatingCount), 2)
+            book.rating = newAvgRating
+            book.totalRatingCount = newTotalRatingCount
             book.save()
 
     return redirect(reverse("details", args=(id,)))

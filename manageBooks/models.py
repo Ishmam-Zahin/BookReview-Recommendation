@@ -7,6 +7,13 @@ class Books(models.Model):
     totalViews = models.IntegerField(default = 0)
     totalRatingCount = models.IntegerField(default = 0)
     rating = models.FloatField(default = 0)
+    author = models.TextField(null = True)
+    publisher = models.TextField(null = True)
+    publishDate = models.TextField(null = True)
+    title = models.TextField(null = True)
+    description = models.TextField(null = True)
+    imageLink = models.TextField(null = True)
+
 
 class UserViewedBooks(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE)
@@ -20,7 +27,7 @@ class Reviews(models.Model):
 
 class RecentlyViewedBooks(models.Model):
     time = models.DateTimeField(auto_now = True)
-    bookId = models.CharField(max_length = 100)
+    book = models.ForeignKey(Books, on_delete = models.CASCADE, null = True)
     user = models.ForeignKey(User, on_delete = models.CASCADE)
 
 class Ratings(models.Model):

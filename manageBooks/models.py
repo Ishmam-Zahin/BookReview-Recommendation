@@ -14,6 +14,9 @@ class Books(models.Model):
     description = models.TextField(null = True)
     imageLink = models.TextField(null = True)
 
+    def __str__(self):
+        return self.title
+
 
 class UserViewedBooks(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE)

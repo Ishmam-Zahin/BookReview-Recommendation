@@ -8,8 +8,12 @@ body{
     width: 100vw;
 }
 .body{
-    background-color: #dcdcdc;
-    height: calc(100% - 70px);
+    background-image: url('/static/manageBooks/resources/bgImage.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    /* background-color: #dcdcdc; */
+    height: calc(100% - 100px);
     width: 100%;
     display: flex;
     justify-content: center;
@@ -208,6 +212,35 @@ body{
     position: absolute;
     right: 0;
 }
+
+._xinfo{
+    border: 2px solid black;
+    width: 300px;
+    height: 350px;
+    margin: 5px;
+    transition: transform .2s;
+}
+._xinfo img{
+    width: 100%;
+    height: 63%;
+}
+._xinfo div{
+    height: 37%;
+    width: 100%;
+    background-color: rgb(42, 42, 129);
+}
+._xinfo div h5{
+    width: 280px;
+    height: 55%;
+    overflow: hidden;
+    color: white;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+._xinfo:hover{
+    transform: translate(0px, -5px);
+}
+
 
 @media screen and (max-width: 915px){
     .body{

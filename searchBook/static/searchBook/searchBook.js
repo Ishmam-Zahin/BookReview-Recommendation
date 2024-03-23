@@ -3,8 +3,8 @@ let endpoint
 let data
 const showResultStartHelper = function (i){
     let sImg = ""
-    if (data.items[i].volumeInfo.imageLinks !== undefined) sImg = `<img src="${data.items[i].volumeInfo.imageLinks.thumbnail}" alt="no image">`
-    else sImg = `Thumbnail not available`
+    if (data.items[i].volumeInfo.imageLinks !== undefined) sImg = `${data.items[i].volumeInfo.imageLinks.thumbnail}`
+    else sImg = `/static/manageBooks/resources/brokenImage.jpg`
     return sImg
 }
 
@@ -12,9 +12,12 @@ const showResultStart = function (){
     let str = ""
     for (let i = 0; i < data.items.length; i++) {
         str += `
-        <div class="books">
-        <p><a href="/details/${data.items[i].id}">${data.items[i].volumeInfo.title}</a></p>
-        <section>${showResultStartHelper(i)}</section>
+        <div class="card _xinfo">
+        <img src="${showResultStartHelper(i)}" class="card-img-top" alt="Loading . . .">
+        <div class="card-body">
+        <h5 class="card-title">Title:<br>${data.items[i].volumeInfo.title}</h5>
+        <a href="/details/${data.items[i].id}" class="btn btn-primary">Show details</a>
+        </div>
         </div>
         `
     }

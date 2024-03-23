@@ -12,7 +12,7 @@ def insertBook(bookId):
     endpoint = ('https://www.googleapis.com/books/v1/volumes/'+ bookId)
     get_response = requests.get(endpoint)
     data = get_response.json()
-    print(data)
+    # print(data)
     try:
         book.author = data['volumeInfo']['authors'][0]
     except:
@@ -41,9 +41,9 @@ def insertBook(bookId):
             try:
                 book.imageLink = data['volumeInfo']['imageLinks']['smallThumbnail']
             except:
-                book.imageLink = 'undefined'
+                book.imageLink = '/static/manageBooks/resources/brokenImage.jpg'
     except:
-        book.imageLink = 'undefined'
+        book.imageLink = '/static/manageBooks/resources/brokenImage.jpg'
 
     try:
         book.description = data['volumeInfo']['description']

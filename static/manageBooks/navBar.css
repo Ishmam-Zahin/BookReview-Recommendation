@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+}
+._navcontainer{
+    height: 100px;
+    padding: 0;
+    width: 100%;
+}
+._row{
+    background-image: linear-gradient(to right, black, blue);
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+._logo{
+    width: 70px;
+    height: 100%;
+}
+._introcontainer{
+    width: 300px;
+    height: 100%;
+    margin-left: 15px;
+}
+._introcontainer span{
+    display: inline-block;
+    color: white;
+    font-style: italic;
+    font-size: 20px;
+    margin-left: 30px;
+    text-shadow: 3px -3px 5px rgb(255, 0, 0);
+}
+._llinks{
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+._links{
+    width: fit-content;
+    height: fit-content;
+    margin: 15px;
+}
+._buttons{
+    width: fit-content;
+    display: inline-block;
+    font-size: 18px;
+    font-family: "Arial Black";
+    font-style: italic;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+._dropdown{
+    display: none;
+}
+
+@media only screen and (max-width: 1016px){
+    ._buttons{
+        font-size: 12px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+@media only screen and (max-width: 826px){
+    ._llinks{
+        display: none;
+    }
+    ._dropdown{
+        display: block;
+        margin: auto;
+    }
+    ._introcontainer{
+        width: 220px;
+        margin-left: 0;
+    }
+    ._introcontainer span{
+        font-size: 14px;
+        margin-left: 10px;
+    }
+}

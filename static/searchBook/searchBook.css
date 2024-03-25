@@ -1,0 +1,276 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+}
+.body{
+    background-image: url('/static/manageBooks/resources/bgImage.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    /* background-color: #dcdcdc; */
+    height: calc(100% - 100px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+@keyframes anim{
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg)}
+}
+.loader{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    display: flex;
+    background-image: conic-gradient(blue 0deg, blue 90deg, #dcdcdc 0deg);
+    animation-name: anim;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    /* display: none; */
+}
+.loader div{
+    background-color: #dcdcdc;
+    border-radius: 50%;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+}
+.searchContainer{
+    border: 1px solid blue;
+    width: 400px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sBlock{
+    border-radius: 5%;
+    padding: 10px;
+    border: 1px solid blue;
+    background-color: #4d4dda;
+    width: 100%;
+}
+.sBlock label{
+    font-weight: bolder;
+    font-size: 20px;
+}
+.sBlock button{
+    width: 100px;
+    height: 50px;
+    font-weight: bolder;
+    margin-left: calc((100% - 100px) / 2);
+    margin-top: 30px;
+}
+.sBlock input{
+    width: 100%;
+    height: 40px;
+}
+
+.resultContainer{
+    width: 1000px;
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.resultContainer p.intro{
+    font-family: "Arial Black", Serif;
+    text-align: center;
+}
+.resultContainer p.intro span{
+    font-size: 24px;
+    color: blue;
+}
+.books{
+    border: 1px solid rgba(0, 0, 255, 0.69);
+    width: 300px;
+    height: 300px;
+    margin: 10px;
+}
+.books p{
+    width: 100%;
+    height: 50px;
+    font-family: "Arial Black", Serif;
+    text-align: center;
+    overflow: hidden;
+}
+.books p span:hover{
+    color: #003cff;
+}
+.books section{
+    width: 100%;
+    height: 250px;
+}
+.books section img{
+    width: 100%;
+    height: 100%
+}
+
+.extraInfo{
+    display: none;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.65);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+.eBlock{
+    border: 2px solid #000000;
+    z-index: 3;
+    background-color: white;
+    width: 700px;
+    height: 100%;
+    position: relative;
+    overflow-y: scroll;
+
+    display: grid;
+    grid-template-columns: 300px auto;
+    grid-template-rows: 50px 300px auto;
+}
+.eBlock .grid-0{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    justify-content: center;
+}
+.eBlock .grid-0 p{
+    height: 100%;
+    width: calc(100% - 60px);
+    text-align: center;
+    font-weight: bolder;
+    font-size: 24px;
+    overflow: hidden;
+}
+.eBlock .grid-1{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+}
+.eBlock .grid-1 img{
+    width: 100%;
+    height: 100%;
+}
+.eBlock .grid-2{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+.eBlock .grid-2 p span{
+    font-family: "Arial Black", Serif;
+    font-size: 16px;
+}
+.eBlock .grid-3{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+.eBlock .grid-3 p span{
+    font-family: "Arial Black", Serif;
+    font-size: 16px;
+}
+.eBlock .grid-3 p{
+    border: 1px solid blue;
+    text-align: center;
+    margin-top: 20px;
+    height: 240px;
+    overflow-y: scroll;
+}
+.eBlock .grid-3 p.eBuy{
+    color: black;
+    border: 1px solid rgb(0, 0, 255);
+    background-color: rgba(57, 57, 255, 0.55);
+    width: 100px;
+    height: 50px;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 60px;
+}
+.crosX{
+    background-color: black;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+}
+
+._xinfo{
+    border: 2px solid black;
+    width: 300px;
+    height: 350px;
+    margin: 5px;
+    transition: transform .2s;
+}
+._xinfo img{
+    width: 100%;
+    height: 63%;
+}
+._xinfo div{
+    height: 37%;
+    width: 100%;
+    background-color: rgb(42, 42, 129);
+}
+._xinfo div h5{
+    width: 280px;
+    height: 55%;
+    overflow: hidden;
+    color: white;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+._xinfo:hover{
+    transform: translate(0px, -5px);
+}
+
+
+@media screen and (max-width: 915px){
+    .body{
+        border: 5px solid black;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .searchContainer{
+        width: 100%;
+        height: 200px;
+    }
+    .sBlock{
+        width: 100%;
+        height: 100%
+    }
+    .sBlock label{
+        font-weight: normal;
+        font-size: 16px;
+    }
+    .sBlock input{
+        height: 20px;
+    }
+    .resultContainer{
+        width: 100%;
+    }
+    .sBlock button{
+        width: 100px;
+        height: 20px;
+        font-weight: normal;
+        margin-left: calc((100% - 100px));
+        margin-top: 0px;
+    }
+}
